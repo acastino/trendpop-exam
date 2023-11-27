@@ -1,4 +1,7 @@
-const apiBaseUri = import.meta.env.VITE_BACKEND_API_BASEURL;
+const apis = {
+  laravel: import.meta.env.VITE_LARAVEL_BACKEND_API_BASEURL,
+  golang: import.meta.env.VITE_GOLANG_BACKEND_API_BASEURL,
+};
 
 const headers = {
   Accept: "application/json",
@@ -9,6 +12,10 @@ export default abstract class BaseApi<ModelType> {
   protected abstract resourceGroupName: string;
 
   private resourceGroupUri() {
+    const queryString = location.search.substring(1);
+    const params = new URLSearchParams(queryString);
+    const backend = params.get("backend")?.toLowerCase() || "";
+    const apiBaseUri = backend == "golang" ? apis.golang : apis.laravel;
     return `${apiBaseUri}/${this.resourceGroupName}`;
   }
 

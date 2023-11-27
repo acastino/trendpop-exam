@@ -15,13 +15,27 @@ For a more specific use-case (maybe when not using MySQL), then perhaps another 
 
 Or if you want a much better performance, then maybe a compiled language like Golang, Java, Rust, etc would be the much better option for that kind of requirement, although the tooling would all be separated unlike what we have in Laravel.
 
-## Project setup
+## Project setup (development)
+
+Edit the `.env` after copying it from example.
 
 ```
+cp .env.example .env
 composer install
+php artisan config:clear
+php artisan config:cache
+php artisan key:generate
 php artisan migrate
 php artisan serve
 ```
+
+## Project setup (production)
+
+A lot of tools can automate the deployment of Laravel, so prefer to use those, by default. Remember to perform the following however, to make sure that your app is production ready.
+
+1. Edit the `.env` file, specifically the variables that start with `APP_`.
+1. Generate a unique key for this new instance of your app, using `php artisan key:generate`.
+1. Prepare the database tables, by running: `php artisan migrate`
 
 ## Security Vulnerabilities
 
