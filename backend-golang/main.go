@@ -11,5 +11,5 @@ func main() {
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/api/invoice", ListInvoices).Methods("GET", "OPTIONS")
 	router.HandleFunc("/api/invoice", StoreInvoice).Methods("POST", "OPTIONS")
-	log.Fatal(http.ListenAndServe(":8001", router))
+	log.Fatal(http.ListenAndServe(portNumByEnv(), router))
 }

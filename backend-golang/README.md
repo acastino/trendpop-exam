@@ -17,6 +17,7 @@ go run *.go
 Most platforms now have an automated way of serving Golang projects, prefer to use those defaults. However, don't forget to build the project, so that it runs as fast as possible, as originally intended. You can later then simply execute the binary file, without needing the `go` command, like so:
 
 ```
-go build
-./backend-golang
+go get
+go build -o out
+./out
 ```
