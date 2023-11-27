@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("billing_period");
             $table->string("po_number");
             $table->timestamps();
+            $table->dateTime("deleted_at")->nullable();
         });
     }
 

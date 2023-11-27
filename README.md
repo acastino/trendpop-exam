@@ -14,8 +14,8 @@ Kind regards.
    - You can switch the Backend API to Golang, by adding the following query string: `?backend=golang`
    - The default Backend is Laravel, which optionally can use the following query string: `?backend=laravel`
 1. The backend servers are currently deployed to:
-   1. Laravel: https://trendpop-exam-laravel-production.up.railway.app/
-   1. Golang: https://trendpop-exam-golang-production.up.railway.app/
+   1. Laravel: https://trendpop-exam-laravel-production.up.railway.app/api/invoice
+   1. Golang: https://trendpop-exam-golang-production.up.railway.app/api/invoice
 
 ## Notes
 
