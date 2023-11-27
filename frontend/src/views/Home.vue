@@ -43,6 +43,8 @@
     console.info('Saved into the Database successfully: ', response);
     showForm.value = false;
   }
+
+  let rootPath = process.env.NODE_ENV === "production" ? "/trendpop-exam/" : "/"
 </script>
 
 <template>
@@ -67,7 +69,7 @@
           <div class="text-left text-h5 mb-11">Thank you for submitting your PO#!</div>
         </div>
 
-        <div class="text-left text-h6">Go back to <a href="/">Workspace Settings</a></div>
+        <div class="text-left text-h6">Go back to <a :href="rootPath">Workspace Settings</a></div>
       </v-card-text>
     </v-card>
   </v-form>
