@@ -11,9 +11,9 @@ func loadVars() {
 }
 
 func portNumByEnv() string {
-	if os.Getenv("ENV") == "production" {
-		return ":80"
-	} else {
-		return ":8001"
+	sysPort := os.Getenv("PORT")
+	if sysPort != "" {
+		return ":" + sysPort
 	}
+	return ":8001"
 }
